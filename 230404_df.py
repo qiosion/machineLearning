@@ -13,19 +13,28 @@ df = pd.DataFrame(dict)
 df["국어"] = 0
 df["영어"] = 0
 df["수학"] = 0
+df["성별"] = []
 
 # 이 과목들에 랜덤하게 넣어줄 점수 함수 생성
 def score():
     return r.randint(0,100) # 랜덤한 정수타입 randint, 범위는 0~100
 
+# 성별을 랜덤하게 넣는 함수 생성
+def sex():
+    return r.choice(['여','남'])
+
 # 학번
-for i in range(0, 23):
+for i in range(1, 23):
     df.loc[i] = ["name",
                  "2023-{0}".format(i),
-                 score(), score(), score()]
+                 score(), score(), score(), sex()]
 
+# # 성별 : 하드코딩.. ㅎ
+# df["성별"] = ['여자', '여자', '여자', '여자', '여자', '여자', '남자', '여자',
+#              '남자', '여자', '남자', '남자', '남자', '여자', '남자', '남자',
+#              '여자', '남자', '남자', '여자', '남자', '여자']
 # 이름 : 하드코딩..
-df.loc[0, "name"] = "신주석"
+# df.loc[0, "name"] = ""
 df.loc[1, "name"] = "강은선"
 df.loc[2, "name"] = "구보람"
 df.loc[3, "name"] = "김권아"
@@ -52,4 +61,4 @@ df.loc[22, "name"] = "황민설"
 print(df)
 
 # 데이터프레임을 파일로 저장하기
-df.to_csv("ai엔지니어링 학생.csv")
+df.to_csv("ai_score_data.csv", index=None)
