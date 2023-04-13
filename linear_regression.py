@@ -15,7 +15,7 @@ if __name__ == "__main__":
     y_true = []
 
     for i in x:
-        x_2d.append([i]) # 대괄호를 쳐서 2차원..
+        x_2d.append([i]) # reshape : 대괄호를 쳐서 2차원 만들어줌
         y_true.append(true_func(i))
         y.append(true_func(i) + r.randint(-10, 10)) # 노이즈 추가
 
@@ -27,6 +27,8 @@ if __name__ == "__main__":
     # predict
     # y_pred = lr.predict(x_2d)
     y_pred = lr.predict([[51], [52], [53], [54]])
+
+    print(y_pred)
 
     # plt.plot(x_2d, y_pred, "y-") # 갯수가 안맞아서 에러나는거
     # plt.plot(x_2d, y, "b+")
