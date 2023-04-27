@@ -54,18 +54,21 @@ def solution_4(param):
     result = int(max / min)
     return result
 
-shirt_size = ["XL", "XXL", "XS", "XS", "XS"]
-result1 = solution_1(shirt_size)
-print(result1)
 
-arr = [1, 4, 2, 3, 999]
-result2 = solution_2(arr)
-print(result2)
+if __name__ == '__main__':
 
-n = 5
-result3 = solution_3(n)
-print(result3)
+    shirt_size = ["XL", "XXL", "XS", "XS", "XS"]
+    result1 = solution_1(shirt_size)
+    print(result1)
 
-param = [2, 3, 3, 3, 1, 3, 3, 2, 3, 2]
-result4 = solution_4(param)
-print(result4)
+    arr = [1, 4, 2, 3, 999]
+    result2 = solution_2(arr)
+    print(result2)
+
+    n = 5
+    result3 = solution_3(n)
+    print(result3)
+
+    param = [2, 3, 3, 3, 1, 3, 3, 2, 3, 2]
+    result4 = solution_4(param)
+    print(result4)
