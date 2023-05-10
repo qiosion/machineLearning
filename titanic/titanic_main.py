@@ -20,7 +20,7 @@ def show_count_plot(feature):
     sns.countplot(data=df_train, x=feature, hue='Survived')  # hue : 카테고리
     plt.show()
 
-# 생존자 중 해당 카테고리 별 비율
+# 생존자 중 해당 카테고리 비율
 def show_survive_rate(feature):
     # feature 열에 대해, 생존자/사망자 count
     survive_count = survive[feature].value_counts(sort=False)
@@ -34,6 +34,19 @@ def show_survive_rate(feature):
 
     # % 문자를 사용하고싶다면 두번 작성해준다
     # plt.pie(survive_count, labels=category, autopct='%.1f%%')
+    plt.show()
+
+# 카테고리 별 생존자 비율
+def showSurvivedRate_Category(feature):
+    survive_count = survive[feature].value_counts(sort=False)
+    dead_count = dead[feature].value_counts(sort=False)
+
+    length = len(survive_count.index)
+
+    for i, index in enumerate(survive_count.index):
+        plt.subplot(1, length, i+1)
+        plt.pie([survive_count[index], dead_count[index]], labels=['Survived', 'Dead'], autopct="%.1f%%")
+        plt.title(f"Survival rate of {index}")
     plt.show()
 
 if __name__ == '__main__':
@@ -54,3 +67,7 @@ if __name__ == '__main__':
 
     show_survive_rate("Pclass")
     show_survive_rate("Sex") # 성별에 따른 생존 여부
+
+    # 카테고리 별 생존자 비율 (모수 : 해당 카테고리 전체인원)
+    showSurvivedRate_Category("Pclass")
+    showSurvivedRate_Category("Sex")
